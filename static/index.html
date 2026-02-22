@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İzleme Partisi</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="dark-theme">
+    <div class="container">
+        <header>
+            <h1>🎬 İzleme Partisi</h1>
+            <div id="status" class="status-indicator">Bağlanıyor...</div>
+        </header>
+
+        <main>
+            <div class="video-section">
+                <div class="player-container" id="playerContainer">
+                    <video id="videoPlayer" class="hidden" controls>
+                        Tarayıcınız video etiketini desteklemiyor.
+                    </video>
+                    <!-- Uzaktan gelen ekran buraya yansıyacak -->
+                    <video id="sharedVideo" autoplay playsinline class="main-video hidden"></video>
+
+                    <div id="videoOverlay" class="overlay hidden">
+                        <span id="overlayMessage">Eşitleniyor...</span>
+                    </div>
+                </div>
+
+                <div class="controls-area">
+                    <button id="shareScreen" class="primary-btn">📺 Ekranı Paylaş</button>
+                    <button id="fullScreenBtn" class="secondary-btn">🔲 Tam Ekran</button>
+                    <div id="recordingIndicator" class="indicator hidden">● Yayında</div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="user-list-container">
+                    <h3>Bağlı Kullanıcılar</h3>
+                    <ul id="userList" class="user-list"></ul>
+                </div>
+                <div class="v-chat-container">
+                    <h3>Ekran Paylaşanlar</h3>
+                    <div id="videoGrid" class="video-grid">
+                        <div class="video-wrapper">
+                            <video id="localVideo" autoplay playsinline muted></video>
+                            <span>Sen</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="log-container">
+                    <h3>Sistem Kayıtları</h3>
+                    <div id="eventLogs" class="event-logs"></div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <!-- Kullanıcı Adı Belirleme Modalı -->
+    <div id="nameModal" class="modal">
+        <div class="modal-content">
+            <h2>Hoş Geldin! 🎬</h2>
+            <p>Sohbette görünecek bir kullanıcı adı seç:</p>
+            <input type="text" id="usernameInput" placeholder="Kullanıcı Adı..." maxlength="15">
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <button id="saveNameBtn" class="primary-btn">Salona Gir</button>
+                <button id="skipNameBtn" class="secondary-btn">Misafir Olarak Gir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Siyah Ekran Çözümü İçin Tıklama Alanı -->
+    <div id="playPrompt" class="play-prompt hidden">
+        <div class="play-content">
+            <div class="play-icon">▶</div>
+            <p>Yayını Başlatmak İçin Dokun</p>
+        </div>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+
+</html>
